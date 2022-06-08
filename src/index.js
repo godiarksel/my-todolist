@@ -14,6 +14,7 @@ class Task {
 }
 
 const taskArray = [];
+
 const addTasks = (task) => {
   const tasksEl = document.createElement('div');
   tasksEl.classList.add('tasks');
@@ -24,9 +25,13 @@ const addTasks = (task) => {
   <i class="fa-solid fa-trash"></i>
   `;
   taskContainer.appendChild(tasksEl);
-
   const checkBox = document.querySelectorAll('.checkbox');
-  checkBox.forEach(i =>{
+  completeTask(checkBox);
+  addToLocalStorage(task, false, checkBox.length - 1);
+}
+
+const completeTask = (checkbox) => {
+  checkbox.forEach(i =>{
     i.addEventListener('click', () => {
       i.parentElement.classList.toggle('completed-tasks-container');
       i.nextElementSibling.classList.toggle('completed-tasks');
@@ -34,6 +39,13 @@ const addTasks = (task) => {
       i.parentElement.lastElementChild.previousElementSibling.classList.toggle('dotsicon-inactive');
     })
   })
+}
+
+const addToLocalStorage = (description, completed, index) => {
+  const task = new Task(description, completed, index);
+  taskArray.push(task);
+  localStorage.setItem('taskList',JSON.stringify(taskArray));
+
 }
 
 taskInput.addEventListener('keypress', (e) => {
