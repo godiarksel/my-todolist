@@ -13,7 +13,7 @@ body {
 }
 
 section {
-  box-shadow: 5px 5px 15px -2px rgb(35, 34, 34, .8);
+  box-shadow: 5px 5px 15px -2px rgb(35, 34, 34, 0.8);
   background-color: white;
   padding-top: 22px;
   width: 40%;
@@ -38,8 +38,8 @@ input {
 
 .tasks {
   display: flex;
-  border-top: 1px solid rgb(0, 0, 0,.4);
-  border-bottom: 1px solid rgb(0, 0, 0,.4);
+  border-top: 1px solid rgb(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgb(0, 0, 0, 0.4);
   padding: 16px 22px;
   align-items: center;
   font-size: 18px;
@@ -51,7 +51,7 @@ button {
   border: none;
   background-color: white;
   padding: 15px 0;
-  border-top: 1px solid rgb(0, 0, 0,.4);
+  border-top: 1px solid rgb(0, 0, 0, 0.4);
   color: rgb(35, 34, 34);
 }
 
