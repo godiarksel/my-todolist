@@ -1,13 +1,45 @@
-import _ from 'lodash';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
+const taskSection = document.querySelector('section');
+const taskInput =  document.querySelector('input');
+const taskContainer =  document.querySelector('.task-container');
+const clearBtn = document.querySelector('button');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
+class Task {
+  constructor(description, completed, index){
+    this.description = description;
+    this.completed = completed;
+    this.index = index;
+  }
 }
 
-document.body.appendChild(component());
+const taskArray = [];
+const addTasks = (task) => {
+  const tasksEl = document.createElement('div');
+  tasksEl.classList.add('tasks');
+  tasksEl.innerHTML += `
+  <input type="checkbox" class="checkbox">
+  <span>${task}</span>
+  <i class="fa-solid fa-ellipsis-vertical"></i>
+  <i class="fa-solid fa-trash"></i>
+  `;
+  taskContainer.appendChild(tasksEl);
+
+  const checkBox = document.querySelectorAll('.checkbox');
+  checkBox.forEach(i =>{
+    i.addEventListener('click', () => {
+      i.parentElement.classList.toggle('completed-tasks-container');
+      i.nextElementSibling.classList.toggle('completed-tasks');
+      i.parentElement.lastElementChild.classList.toggle('trashicon-active');
+      i.parentElement.lastElementChild.previousElementSibling.classList.toggle('dotsicon-inactive');
+    })
+  })
+}
+
+taskInput.addEventListener('keypress', (e) => {
+  if(e.key === 'Enter' && taskInput.value !== null){
+    e.preventDefault();
+    addTasks(taskInput.value);
+    taskInput.value = '';
+  }
+})

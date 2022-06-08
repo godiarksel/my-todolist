@@ -1,3 +1,23 @@
 body {
-  background-color: bisque;
+  background-color: whitesmoke;
+}
+
+.fa-trash {
+  display: none;
+}
+
+.trashicon-active {
+  display: block;
+}
+
+.dotsicon-inactive {
+  display: none;
+}
+
+.completed-tasks-container {
+  background-color: rgb(197, 194, 194);
+}
+
+.completed-tasks {
+  text-decoration: line-through;
 }
