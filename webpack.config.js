@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: "/my-todolist/",
+    publicPath: '/my-todolist/',
   },
   devServer: {
     static: './dist',
